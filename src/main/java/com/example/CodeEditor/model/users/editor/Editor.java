@@ -1,19 +1,14 @@
 package com.example.CodeEditor.model.users.editor;
 
-import com.example.CodeEditor.model.users.Client;
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
-public class Editor extends Client {
+public class Editor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

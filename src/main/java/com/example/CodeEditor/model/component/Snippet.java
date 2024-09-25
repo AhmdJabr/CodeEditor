@@ -1,25 +1,22 @@
 package com.example.CodeEditor.model.component;
 
-import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Entity
-@Table
+import java.util.List;
+
 @Data
-@NoArgsConstructor
 public class Snippet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private Folder parent;
     private String path;
     private String extension;
-    private String content;
+    private List<CodeLine> content;
 
-    public Snippet(String name, String path, String extension, String content) {
+    public Snippet(String name, Folder parent, String extension, List<CodeLine> content) {
         this.name = name;
-        this.path = path;
+        this.parent = parent;
+        this.path = parent.getPath() + "/" + name;
         this.extension = extension;
         this.content = content;
     }
